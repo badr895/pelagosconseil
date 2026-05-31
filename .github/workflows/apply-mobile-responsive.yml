@@ -1,0 +1,47 @@
+name: Apply mobile responsive CSS
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - assets/css/mobile-responsive.css
+      - .github/workflows/apply-mobile-responsive.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Append responsive CSS to main stylesheet
+        shell: bash
+        run: |
+          set -euo pipefail
+          marker='MOBILE RESPONSIVE — couche finale CSS only'
+          if grep -Fq "$marker" assets/css/style.css; then
+            echo "Responsive CSS already present in style.css"
+            exit 0
+          fi
+          printf '\n' >> assets/css/style.css
+          cat assets/css/mobile-responsive.css >> assets/css/style.css
+
+      - name: Commit responsive stylesheet
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- assets/css/style.css; then
+            echo "No stylesheet changes to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/css/style.css
+          git commit -m "Improve mobile responsive layout"
+          git push
