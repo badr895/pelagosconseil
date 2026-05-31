@@ -24,8 +24,15 @@ jobs:
             echo "No deployment zip found. Nothing to do."
             exit 0
           fi
+          set +e
           unzip -o pelagos-site-ready-to-deploy.zip -d .
-          rm pelagos-site-ready-to-deploy.zip
+          unzip_status=$?
+          set -e
+          if [ "$unzip_status" -gt 1 ]; then
+            exit "$unzip_status"
+          fi
+          rm -f pelagos-site-ready-to-deploy.zip
+          rm -f .github/publish-trigger.txt
 
       - name: Commit published files
         run: |
