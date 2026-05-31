@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Automatisation reporting financier avec IA | Pelagos</title>
+<meta name="description" content="Automatisation reporting financier avec IA : reporting mensuel PME, automatisation Excel finance, Power BI, commentaires de gestion et confidentialité." />
+<link rel="canonical" href="https://pelagosconseil.com/articles/ia-pour-commenter-reporting-mensuel.html">
+<meta name="theme-color" content="#0B1D33">
+<link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Automatisation reporting financier avec IA | Pelagos">
+<meta property="og:description" content="Automatisation reporting financier avec IA : reporting mensuel PME, automatisation Excel finance, Power BI, commentaires de gestion et confidentialité.">
+<meta property="og:url" content="https://pelagosconseil.com/articles/ia-pour-commenter-reporting-mensuel.html">
+<meta property="og:image" content="https://pelagosconseil.com/assets/img/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Pelagos Finance Services">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Automatisation reporting financier avec IA | Pelagos">
+<meta name="twitter:description" content="Automatisation reporting financier avec IA : reporting mensuel PME, automatisation Excel finance, Power BI, commentaires de gestion et confidentialité.">
+<meta name="twitter:image" content="https://pelagosconseil.com/assets/img/og-cover.png">
+
+<!-- Mesure d'audience Plausible — décommenter après création du compte sur plausible.io
+<script defer data-domain="pelagosconseil.com" src="https://plausible.io/js/script.js"></script>
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<nav class="nav" id="nav">
+  <a href="../index.html" class="logo">
+    <svg class="logo-mark" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="Pelagos">
+  <g>
+    <rect x="60" y="49" width="80" height="3.5" fill="#1F4D5C"/>
+    <rect x="93" y="32" width="14" height="14" fill="#1F4D5C"/>
+    <rect x="91" y="44" width="18" height="3" fill="#1F4D5C"/>
+    <rect x="86" y="48" width="28" height="14" fill="#E89B3C"/>
+    <rect x="82" y="60" width="36" height="4" fill="#1F4D5C"/>
+    <rect x="80" y="64" width="40" height="8" fill="#1F4D5C"/>
+    <path d="M 87 72 L 113 72 L 121 145 L 79 145 Z" fill="#1F4D5C"/>
+    <rect x="96" y="90" width="8" height="14" rx="4" fill="#5C8A95" opacity="0.4"/>
+    <rect x="96" y="118" width="8" height="14" rx="4" fill="#5C8A95" opacity="0.4"/>
+    <rect x="76" y="145" width="48" height="4" fill="#1F4D5C"/>
+    <path d="M 40 158 Q 70 150, 100 158 T 160 158 L 160 165 Q 130 159, 100 165 T 40 165 Z" fill="#5C8A95"/>
+    <path d="M 30 165 Q 65 156, 100 165 T 170 165 L 170 173 Q 135 165, 100 173 T 30 173 Z" fill="#1F4D5C"/>
+    <path d="M 25 173 Q 60 164, 100 173 T 175 173 L 175 180 Q 140 173, 100 180 T 25 180 Z" fill="#0B1D33"/>
+  </g>
+</svg>
+    <span class="logo-text">
+      <span class="logo-name">Pelagos</span>
+      <span class="logo-sub">Finance Services</span>
+    </span>
+  </a>
+  <button class="nav-burger" id="navBurger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="../index.html" class="">Accueil</a></li>
+    <li><a href="../about.html" class="">À propos</a></li>
+    <li class="has-dropdown">
+      <a href="../services.html" class="">Nos services</a>
+      <div class="dropdown">
+        <a href="../services/outsourcing-services-financiers.html">Outsourcing Services Financiers<span class="dropdown-desc">Support finance senior externalisé</span></a>
+        <a href="../services/credit-ar-management.html">AR et Credit Management<span class="dropdown-desc">Vos créances en cash piloté</span></a>
+        <a href="../services/pilotage-financier-controle-gestion.html">DAF externalisé & pilotage financier<span class="dropdown-desc">Une lecture claire pour décider</span></a>
+        <a href="../services/risk-management-internal-control.html">Risk Management & Internal Control<span class="dropdown-desc">Structurer, sécuriser, préparer</span></a>
+        <a href="../services/erp-stock-e-invoicing.html">ERP & Process Starter<span class="dropdown-desc">Digitaliser sans complexité</span></a>
+        <a href="../services/saas-tools-on-demand.html">SaaS & Tools on Demand<span class="dropdown-desc">Mini-outils métier sur-mesure</span></a>
+      </div>
+    </li>
+    <li class="has-dropdown">
+      <a href="../formation.html" class="">Formation</a>
+      <div class="dropdown">
+        <a href="../formations/finance-pour-non-financiers.html">Finance pour non-financiers<span class="dropdown-desc">Dirigeants & managers</span></a>
+        <a href="../formations/credit-management-recouvrement.html">Credit Management & recouvrement<span class="dropdown-desc">Maîtriser le poste client</span></a>
+        <a href="../formations/dashboard-controle-gestion.html">Dashboard & contrôle de gestion<span class="dropdown-desc">Reporting moderne</span></a>
+        <a href="../formations/sox-controle-interne.html">SOX & contrôle interne<span class="dropdown-desc">Sécuriser et structurer</span></a>
+        <a href="../formations/ai-for-finance.html">AI for Finance Teams<span class="dropdown-desc">L'IA dans les équipes finance</span></a>
+        <a href="../formations/erp-stock-facturation.html">ERP, stock & facturation<span class="dropdown-desc">Digitaliser les flux</span></a>
+      </div>
+    </li>
+    <li><a href="../review.html" class="active">Pelagos Review</a></li>
+    <li><a href="../contact.html" class="">Contact</a></li>
+  </ul>
+</nav><section class="page-header">
+  <div class="page-header-inner">
+    <nav class="breadcrumb">
+      <a href="../index.html">Accueil</a>
+      <span class="breadcrumb-sep">/</span>
+      <a href="../review.html">Pelagos Review</a>
+      <span class="breadcrumb-sep">/</span>
+      <span>IA & automatisation</span>
+    </nav>
+    <div class="page-eyebrow">— IA & automatisation · 10 min</div>
+    <h1 class="page-title" style="max-width: 1000px;">Comment <em>utiliser l'IA</em> pour commenter un reporting mensuel.</h1>
+  </div>
+</section>
+
+<section style="padding: 0 40px 60px; background: var(--cream);">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div style="aspect-ratio: 21/9; border-radius: 20px; background-image: linear-gradient(135deg, rgba(11, 29, 51, 0.3), rgba(31, 77, 92, 0.4)), url('https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&auto=format&fit=crop&q=80'); background-size: cover; background-position: center;"></div>
+  </div>
+</section>
+
+<section class="service-detail-section" style="padding-top: 0;">
+  <div class="service-detail-inner" style="max-width: 1100px;">
+    <div class="service-detail-content" style="font-size: 18px;">
+      <p>L'IA n'écrit pas votre reporting à votre place. Mais elle <strong>accélère les commentaires de gestion</strong> si on lui donne le bon cadre.</p>
+<h2>Le <em>cadre</em> avant l'outil</h2>
+<p>Avant tout, deux règles : <strong>jamais</strong> de données nominatives ou confidentielles dans des outils grand public, et <strong>toujours</strong> une relecture humaine systématique du résultat.</p>
+<h2>La <em>méthode</em> en 3 étapes</h2>
+<ul><li><strong>1. Synthèse des chiffres</strong> : vous donnez les KPI clés et les variations. L'IA structure la lecture.</li><li><strong>2. Hypothèses explicatives</strong> : vous donnez les éléments de contexte (mix produit, saisonnalité, événement). L'IA produit des hypothèses argumentées.</li><li><strong>3. Recommandations</strong> : vous donnez les leviers possibles. L'IA propose un plan d'action structuré.</li></ul>
+<h2>Le <em>prompt</em> qui marche</h2>
+<p>« Tu es contrôleur de gestion d'une PME de [secteur]. Voici les chiffres du mois [...]. Produis un commentaire de gestion en 3 paragraphes : performance vs N-1, principaux leviers d'explication, recommandations actionnables. Style : concis, factuel, orienté décision. »</p>
+<blockquote>L'IA ne remplace pas la rigueur du financier. Elle accélère la production. La décision reste humaine.</blockquote>
+
+      <h2>Pelagos peut <em>vous aider</em></h2>
+      <p>Si vous voulez approfondir cette analyse pour votre propre situation, Pelagos propose un échange de 30 minutes — sans engagement.</p>
+      <p style="margin-top: 32px;">
+        <a href="../formations/ai-for-finance.html" class="btn-primary">Découvrir la formation AI for Finance
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H4M11 3V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </a>
+      </p>
+    </div>
+
+    <aside class="service-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">— À lire aussi</div>
+        <ul>
+          <li><a href="pourquoi-les-pme-vendent-mais-manquent-de-cash.html">Pourquoi les PME manquent de cash</a></li>
+          <li><a href="balance-agee-comment-la-lire-chaque-semaine.html">Lire sa balance âgée chaque semaine</a></li>
+          <li><a href="ar-tracker-pourquoi-excel-ne-suffit-plus.html">AR Tracker : pourquoi Excel ne suffit plus</a></li>
+          <li><a href="facturation-electronique-maroc.html">Facturation électronique Maroc</a></li>
+          <li><a href="les-7-kpi-dirigeant-pme.html">Les 7 KPI dirigeant</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-cta">
+        <div class="sidebar-cta-title">Besoin d'y voir clair ?</div>
+        <p class="sidebar-cta-text">Échangeons sur votre situation finance — diagnostic offert de 30 minutes.</p>
+        <a href="../contact.html" class="btn-gold" style="width:100%; justify-content:center;">Demander un diagnostic</a>
+      </div>
+    </aside>
+  </div>
+</section>
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="../index.html" class="footer-logo">
+          <svg class="logo-mark" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="Pelagos">
+  <g>
+    <rect x="60" y="49" width="80" height="3.5" fill="#1F4D5C"/>
+    <rect x="93" y="32" width="14" height="14" fill="#1F4D5C"/>
+    <rect x="91" y="44" width="18" height="3" fill="#1F4D5C"/>
+    <rect x="86" y="48" width="28" height="14" fill="#E89B3C"/>
+    <rect x="82" y="60" width="36" height="4" fill="#1F4D5C"/>
+    <rect x="80" y="64" width="40" height="8" fill="#1F4D5C"/>
+    <path d="M 87 72 L 113 72 L 121 145 L 79 145 Z" fill="#1F4D5C"/>
+    <rect x="96" y="90" width="8" height="14" rx="4" fill="#5C8A95" opacity="0.4"/>
+    <rect x="96" y="118" width="8" height="14" rx="4" fill="#5C8A95" opacity="0.4"/>
+    <rect x="76" y="145" width="48" height="4" fill="#1F4D5C"/>
+    <path d="M 40 158 Q 70 150, 100 158 T 160 158 L 160 165 Q 130 159, 100 165 T 40 165 Z" fill="#5C8A95"/>
+    <path d="M 30 165 Q 65 156, 100 165 T 170 165 L 170 173 Q 135 165, 100 173 T 30 173 Z" fill="#1F4D5C"/>
+    <path d="M 25 173 Q 60 164, 100 173 T 175 173 L 175 180 Q 140 173, 100 180 T 25 180 Z" fill="#0B1D33"/>
+  </g>
+</svg>
+          <span class="footer-logo-text">Pelagos</span>
+        </a>
+        <p class="footer-brand-tag">
+          <em>Deep insight. Clear direction.</em><br>
+          Solutions financières opérationnelles — Casablanca, Maroc.
+        </p>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigation</div>
+        <ul class="footer-col-list">
+          <li><a href="../index.html">Accueil</a></li>
+          <li><a href="../about.html">À propos</a></li>
+          <li><a href="../services.html">Nos services</a></li>
+          <li><a href="../formation.html">Formation</a></li>
+          <li><a href="../review.html">Pelagos Review</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-col-list">
+          <li><a href="../services/outsourcing-services-financiers.html">Outsourcing Finance</a></li>
+          <li><a href="../services/credit-ar-management.html">AR et Credit Management</a></li>
+          <li><a href="../services/pilotage-financier-controle-gestion.html">DAF externalisé & pilotage</a></li>
+          <li><a href="../services/risk-management-internal-control.html">Risk & Internal Control</a></li>
+          <li><a href="../services/erp-stock-e-invoicing.html">ERP & Process Starter</a></li>
+          <li><a href="../services/saas-tools-on-demand.html">SaaS & Tools on Demand</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-col-list">
+          <li><a href="mailto:contact@pelagosconseil.com">contact@pelagosconseil.com</a></li>
+          <li><a href="https://linkedin.com/company/pelagos-finance" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="../contact.html">Diagnostic 30 min</a></li>
+          <li><a href="../mentions-legales.html">Mentions légales</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Pelagos Finance Services · Tous droits réservés</span>
+      <span>Casablanca · Made with intention</span>
+    </div>
+    <div class="footer-legal">
+      Pelagos Finance Services propose un accompagnement en pilotage financier opérationnel. Pelagos ne fournit pas de services bancaires, juridiques ou comptables réglementés. La validation comptable, fiscale et juridique reste sous la responsabilité de l'entreprise cliente et de ses conseils habilités.
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

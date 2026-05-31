@@ -1,0 +1,46 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="Pelagos Finance Services">
+  <!-- Phare Pelagos - reproduction fidèle du logo officiel -->
+  <!-- Couleurs: sarcelle profond #1F4D5C, or/orange #E89B3C, sarcelle clair #5C8A95 -->
+  <g>
+    <!-- Antennes / bras horizontaux -->
+    <rect x="60" y="49" width="80" height="3.5" fill="#1F4D5C"/>
+
+    <!-- Lanterne haute (sommet, petite) -->
+    <rect x="93" y="32" width="14" height="14" fill="#1F4D5C"/>
+    <rect x="91" y="44" width="18" height="3" fill="#1F4D5C"/>
+
+    <!-- Lanterne lumière (orange) -->
+    <rect x="86" y="48" width="28" height="14" fill="#E89B3C"/>
+
+    <!-- Toit/balcon de la lanterne -->
+    <rect x="82" y="60" width="36" height="4" fill="#1F4D5C"/>
+
+    <!-- Galerie d'observation -->
+    <rect x="80" y="64" width="40" height="8" fill="#1F4D5C"/>
+    <line x1="84" y1="64" x2="84" y2="72" stroke="#5C8A95" stroke-width="1"/>
+    <line x1="91" y1="64" x2="91" y2="72" stroke="#5C8A95" stroke-width="1"/>
+    <line x1="100" y1="64" x2="100" y2="72" stroke="#5C8A95" stroke-width="1"/>
+    <line x1="109" y1="64" x2="109" y2="72" stroke="#5C8A95" stroke-width="1"/>
+    <line x1="116" y1="64" x2="116" y2="72" stroke="#5C8A95" stroke-width="1"/>
+
+    <!-- Corps du phare (tronc évasé) -->
+    <path d="M 87 72 L 113 72 L 121 145 L 79 145 Z" fill="#1F4D5C"/>
+
+    <!-- Fenêtre médiane -->
+    <rect x="96" y="90" width="8" height="14" rx="4" fill="#5C8A95" opacity="0.4"/>
+
+    <!-- Porte/fenêtre basse -->
+    <rect x="96" y="118" width="8" height="14" rx="4" fill="#5C8A95" opacity="0.4"/>
+
+    <!-- Base du phare -->
+    <rect x="76" y="145" width="48" height="4" fill="#1F4D5C"/>
+
+    <!-- Vagues (3 niveaux, comme dans le logo) -->
+    <!-- Vague claire (devant) -->
+    <path d="M 40 158 Q 70 150, 100 158 T 160 158 L 160 165 Q 130 159, 100 165 T 40 165 Z" fill="#5C8A95"/>
+    <!-- Vague médiane -->
+    <path d="M 30 165 Q 65 156, 100 165 T 170 165 L 170 173 Q 135 165, 100 173 T 30 173 Z" fill="#1F4D5C"/>
+    <!-- Vague sombre (fond) -->
+    <path d="M 25 173 Q 60 164, 100 173 T 175 173 L 175 180 Q 140 173, 100 180 T 25 180 Z" fill="#0B1D33"/>
+  </g>
+</svg>

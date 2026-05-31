@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Pelagos">
+  <rect width="64" height="64" rx="14" fill="#0B1D33"/>
+  <rect x="27" y="13" width="10" height="9" fill="#E89B3C"/>
+  <rect x="25" y="22" width="14" height="3" fill="#F5F2EC"/>
+  <path d="M27 25 H37 L40 46 H24 Z" fill="#F5F2EC"/>
+  <path d="M12 50 Q22 46 32 50 T52 50 L52 54 Q42 50 32 54 T12 54 Z" fill="#5C8A95"/>
+  <path d="M10 56 Q21 52 32 56 T54 56 L54 60 Q43 56 32 60 T10 60 Z" fill="#4DB6B0"/>
+</svg>
