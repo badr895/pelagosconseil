@@ -1,0 +1,100 @@
+name: Apply Pelagos Conseil brand SEO
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/seo-brand-trigger.txt
+      - .github/workflows/apply-brand-seo.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Apply brand SEO updates
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+
+          def write_if_changed(path, content):
+              old = path.read_text(encoding='utf-8')
+              if old != content:
+                  path.write_text(content, encoding='utf-8')
+
+          html_files = [p for p in Path('.').rglob('*.html') if not any(part.startswith('_') for part in p.parts)]
+          for path in html_files:
+              text = path.read_text(encoding='utf-8')
+              text = text.replace('<meta property="og:site_name" content="Pelagos Finance Services">', '<meta property="og:site_name" content="Pelagos Conseil">')
+              text = text.replace(' | Pelagos Academy</title>', ' | Pelagos Conseil Academy</title>')
+              text = text.replace(' | Pelagos Academy">', ' | Pelagos Conseil Academy">')
+              text = text.replace(' | Pelagos</title>', ' | Pelagos Conseil</title>')
+              text = text.replace(' | Pelagos">', ' | Pelagos Conseil">')
+              text = text.replace('Contact Pelagos :', 'Contact Pelagos Conseil :')
+              text = text.replace('À propos | Pelagos Finance Services - Casablanca, Maroc', 'À propos | Pelagos Conseil - Casablanca, Maroc')
+              text = text.replace('Mentions légales & confidentialité | Pelagos Finance Services', 'Mentions légales & confidentialité | Pelagos Conseil')
+              text = text.replace('<title>Cas pratiques finance PME Maroc : créances, ERP, reporting</title>', '<title>Cas pratiques finance PME Maroc : créances, ERP, reporting | Pelagos Conseil</title>')
+              text = text.replace('content="Cas pratiques finance PME Maroc : créances, ERP, reporting"', 'content="Cas pratiques finance PME Maroc : créances, ERP, reporting | Pelagos Conseil"')
+              text = text.replace('<title>Délai de paiement clients Maroc & trésorerie PME</title>', '<title>Délai de paiement clients Maroc & trésorerie PME | Pelagos Conseil</title>')
+              text = text.replace('content="Délai de paiement clients Maroc & trésorerie PME"', 'content="Délai de paiement clients Maroc & trésorerie PME | Pelagos Conseil"')
+              text = text.replace('<title>Pelagos Review : cash, créances, ERP et e-invoicing Maroc</title>', '<title>Pelagos Review : cash, créances, ERP et e-invoicing Maroc | Pelagos Conseil</title>')
+              text = text.replace('content="Pelagos Review : cash, créances, ERP et e-invoicing Maroc"', 'content="Pelagos Review : cash, créances, ERP et e-invoicing Maroc | Pelagos Conseil"')
+              write_if_changed(path, text)
+
+          index = Path('index.html')
+          text = index.read_text(encoding='utf-8')
+          text = text.replace('<title>Outsourcing financier Maroc, trésorerie & ERP PME | Pelagos</title>', '<title>Pelagos Conseil | Outsourcing financier Maroc, trésorerie & ERP PME</title>')
+          text = text.replace('<meta name="description" content="Pelagos accompagne les PME au Maroc : outsourcing financier, gestion créances clients, tableau de bord financier PME, ERP, SOX et facturation électronique." />', '<meta name="description" content="Pelagos Conseil, site officiel de Pelagos Finance Services, accompagne les PME au Maroc : outsourcing financier, créances clients, ERP, SOX et e-invoicing." />')
+          text = text.replace('<meta property="og:title" content="Outsourcing financier Maroc, trésorerie & ERP PME | Pelagos">', '<meta property="og:title" content="Pelagos Conseil | Outsourcing financier Maroc, trésorerie & ERP PME">')
+          text = text.replace('<meta property="og:description" content="Pelagos accompagne les PME au Maroc : outsourcing financier, gestion créances clients, tableau de bord financier PME, ERP, SOX et facturation électronique.">', '<meta property="og:description" content="Pelagos Conseil, site officiel de Pelagos Finance Services, accompagne les PME au Maroc : outsourcing financier, créances clients, ERP, SOX et e-invoicing.">')
+          text = text.replace('<meta name="twitter:title" content="Outsourcing financier Maroc, trésorerie & ERP PME | Pelagos">', '<meta name="twitter:title" content="Pelagos Conseil | Outsourcing financier Maroc, trésorerie & ERP PME">')
+          text = text.replace('<meta name="twitter:description" content="Pelagos accompagne les PME au Maroc : outsourcing financier, gestion créances clients, tableau de bord financier PME, ERP, SOX et facturation électronique.">', '<meta name="twitter:description" content="Pelagos Conseil, site officiel de Pelagos Finance Services, accompagne les PME au Maroc : outsourcing financier, créances clients, ERP, SOX et e-invoicing.">')
+
+          if '"@id": "https://pelagosconseil.com/#organization"' not in text:
+              text = text.replace(
+                  '  "@type": "ProfessionalService",\n  "name": "Pelagos Finance Services",',
+                  '  "@type": "ProfessionalService",\n  "@id": "https://pelagosconseil.com/#organization",\n  "name": "Pelagos Conseil",\n  "alternateName": [\n    "Pelagos Finance Services",\n    "Pelagos",\n    "pelagosconseil.com"\n  ],\n  "legalName": "Pelagos Finance Services",',
+                  1,
+              )
+
+          if '"@id": "https://pelagosconseil.com/#website"' not in text:
+              website_json = '''\n\n<script type="application/ld+json">\n{\n  "@context": "https://schema.org",\n  "@type": "WebSite",\n  "@id": "https://pelagosconseil.com/#website",\n  "name": "Pelagos Conseil",\n  "alternateName": [\n    "Pelagos Finance Services",\n    "Pelagos",\n    "pelagosconseil.com"\n  ],\n  "url": "https://pelagosconseil.com/",\n  "publisher": {\n    "@id": "https://pelagosconseil.com/#organization"\n  },\n  "inLanguage": "fr"\n}\n</script>'''
+              text = text.replace('</script>\n</head>', '</script>' + website_json + '\n</head>', 1)
+
+          text = text.replace(
+              "Pelagos Finance Services propose un accompagnement en pilotage financier opérationnel. Pelagos ne fournit pas de services bancaires, juridiques ou comptables réglementés. La validation comptable, fiscale et juridique reste sous la responsabilité de l'entreprise cliente et de ses conseils habilités.",
+              "Pelagos Conseil est le site officiel de Pelagos Finance Services. Pelagos propose un accompagnement en pilotage financier opérationnel et ne fournit pas de services bancaires, juridiques ou comptables réglementés. La validation comptable, fiscale et juridique reste sous la responsabilité de l'entreprise cliente et de ses conseils habilités.",
+          )
+          write_if_changed(index, text)
+
+          sitemap = Path('sitemap.xml')
+          if sitemap.exists():
+              text = sitemap.read_text(encoding='utf-8')
+              if '<loc>https://pelagosconseil.com/</loc>\n    <lastmod>' not in text:
+                  text = text.replace('<loc>https://pelagosconseil.com/</loc>\n', '<loc>https://pelagosconseil.com/</loc>\n    <lastmod>2026-06-03</lastmod>\n', 1)
+              write_if_changed(sitemap, text)
+          PY
+
+      - name: Commit SEO updates
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet; then
+            echo "No SEO changes to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Improve Pelagos Conseil brand SEO"
+          git push
